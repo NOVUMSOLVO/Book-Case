@@ -80,12 +80,12 @@ const Footer: React.FC = () => {
 
         <div className="border-t border-gray-700 mt-8 pt-8 flex flex-col sm:flex-row justify-between items-center">
           <p className="text-gray-400 text-sm">
-            © 2025 ZimbabweApps. All rights reserved.
+            © 2025 Book-Case. All rights reserved.
           </p>
           <div className="flex items-center space-x-4 mt-4 sm:mt-0">
             <div className="flex items-center space-x-2 text-sm text-gray-400">
               <Mail className="w-4 h-4" />
-              <span>support@zimbabweapps.co.zw</span>
+              <span>support@book-case.co.zw</span>
             </div>
           </div>
         </div>

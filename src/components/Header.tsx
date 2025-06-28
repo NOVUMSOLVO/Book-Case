@@ -30,7 +30,7 @@ const Header: React.FC = () => {
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-2 text-green-600 hover:text-green-700 transition-colors">
             <Smartphone className="w-8 h-8" />
-            <span className="text-xl font-bold">ZimbabweApps</span>
+            <span className="text-xl font-bold">Book-Case</span>
           </Link>
 
           {/* Desktop Navigation */}

@@ -30,8 +30,8 @@ const DeveloperPage: React.FC = () => {
           <h1 className="text-3xl font-bold text-gray-900">Developer Portal</h1>
           <p className="text-gray-600 mt-2">
             {isDeveloper 
-              ? 'Submit and manage your apps on ZimbabweApps'
-              : 'Apply to become a developer and start publishing apps'
+              ? 'Submit and manage your books on Book-Case'
+              : 'Apply to become an author and start publishing books'
             }
           </p>
         </div>
@@ -71,7 +71,7 @@ const DeveloperPage: React.FC = () => {
                     Submit Your App
                   </h2>
                   <p className="text-gray-600 mb-6">
-                    Fill out the form below to submit your app to ZimbabweApps. 
+                    Fill out the form below to submit your book to Book-Case. 
                     Our review team will evaluate it within 3-5 business days.
                   </p>
                 </div>
@@ -92,19 +92,19 @@ const DeveloperPage: React.FC = () => {
 
                     <div>
                       <label className="block text-sm font-medium text-gray-700 mb-2">
-                        Category *
+                        Genre *
                       </label>
                       <select className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent">
-                        <option value="">Select a category</option>
-                        <option value="finance">Finance</option>
-                        <option value="news">News</option>
-                        <option value="weather">Weather</option>
-                        <option value="travel">Travel</option>
-                        <option value="education">Education</option>
-                        <option value="entertainment">Entertainment</option>
-                        <option value="business">Business</option>
-                        <option value="health">Health</option>
-                        <option value="shopping">Shopping</option>
+                        <option value="">Select a genre</option>
+                        <option value="fiction">Fiction</option>
+                        <option value="non-fiction">Non-Fiction</option>
+                        <option value="mystery">Mystery</option>
+                        <option value="romance">Romance</option>
+                        <option value="science-fiction">Science Fiction</option>
+                        <option value="fantasy">Fantasy</option>
+                        <option value="biography">Biography</option>
+                        <option value="history">History</option>
+                        <option value="self-help">Self-Help</option>
                       </select>
                     </div>
                   </div>

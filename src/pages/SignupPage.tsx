@@ -52,7 +52,7 @@ const SignupPage: React.FC = () => {
         <div className="flex justify-center">
           <div className="flex items-center space-x-2 text-green-600">
             <Smartphone className="w-8 h-8" />
-            <span className="text-2xl font-bold">ZimbabweApps</span>
+            <span className="text-2xl font-bold">Book-Case</span>
           </div>
         </div>
         <h2 className="mt-6 text-center text-3xl font-bold text-gray-900">

@@ -195,7 +195,7 @@ const DeveloperApplicationForm: React.FC = () => {
             </button>
           </div>
           <p className="text-sm text-gray-500 mt-1">
-            Add links to your GitHub, portfolio website, or published apps
+            Join our community of authors and start publishing your books on Book-Case.
           </p>
         </div>
 
@@ -219,7 +219,7 @@ const DeveloperApplicationForm: React.FC = () => {
 
         <div>
           <label className="block text-sm font-medium text-gray-700 mb-2">
-            Why do you want to become a developer on ZimbabweApps? *
+            Why do you want to become an author on Book-Case? *
           </label>
           <textarea
             rows={4}

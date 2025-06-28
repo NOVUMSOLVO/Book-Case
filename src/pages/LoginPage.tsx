@@ -29,7 +29,7 @@ const LoginPage: React.FC = () => {
         <div className="flex justify-center">
           <div className="flex items-center space-x-2 text-green-600">
             <Smartphone className="w-8 h-8" />
-            <span className="text-2xl font-bold">ZimbabweApps</span>
+            <span className="text-2xl font-bold">Book-Case</span>
           </div>
         </div>
         <h2 className="mt-6 text-center text-3xl font-bold text-gray-900">
@@ -145,7 +145,7 @@ const LoginPage: React.FC = () => {
             <div className="mt-6">
               <button
                 onClick={() => {
-                  setEmail('demo@zimbabweapps.co.zw');
+                  setEmail('demo@book-case.co.zw');
                   setPassword('demo123');
                 }}
                 className="w-full inline-flex justify-center py-2 px-4 border border-gray-300 rounded-md shadow-sm bg-white text-sm font-medium text-gray-500 hover:bg-gray-50"
