@@ -31,9 +31,9 @@ export const API_ENDPOINTS = {
 
 // Local storage keys
 export const STORAGE_KEYS = {
-  theme: 'zimbabwe-apps-theme',
-  language: 'zimbabwe-apps-language',
-  recentSearches: 'zimbabwe-apps-recent-searches',
+  theme: 'book-case-theme',
+  language: 'book-case-language',
+  recentSearches: 'book-case-recent-searches',
 } as const;
 
 // Error messages

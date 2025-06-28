@@ -251,7 +251,7 @@ const translations = {
     'auth.password_min_length': 'Password must be at least 6 characters',
     
     // Footer
-    'footer.description': 'Zimbabwe\'s premier mobile app marketplace. Discover, download, and support local developers creating innovative solutions for our digital future.',
+    'footer.description': 'Zimbabwe\'s premier book marketplace. Discover, download, and support local authors creating innovative solutions for our digital future.',
     'footer.location': 'Harare, Zimbabwe',
     'footer.quick_links': 'Quick Links',
     'footer.about_us': 'About Us',
@@ -260,8 +260,8 @@ const translations = {
     'footer.help_center': 'Help Center',
     'footer.terms_service': 'Terms of Service',
     'footer.payment_info': 'Payment Info',
-    'footer.copyright': '© 2025 ZimbabweApps. All rights reserved.',
-    'footer.support_email': 'support@zimbabweapps.co.zw',
+    'footer.copyright': '© 2025 Book-Case. All rights reserved.',
+    'footer.support_email': 'support@book-case.co.zw',
     
     // Search
     'search.recent_searches': 'Recent Searches',

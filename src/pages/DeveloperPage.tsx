@@ -227,14 +227,14 @@ const DeveloperPage: React.FC = () => {
               <div>
                 <div className="flex justify-between items-center mb-6">
                   <h2 className="text-xl font-semibold text-gray-900">
-                    Your Apps
+                    Your Books
                   </h2>
                   <button
                     onClick={() => setActiveTab('submit')}
                     className="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition-colors flex items-center space-x-2"
                   >
                     <Plus className="w-4 h-4" />
-                    <span>Submit New App</span>
+                    <span>Submit New Book</span>
                   </button>
                 </div>
 
