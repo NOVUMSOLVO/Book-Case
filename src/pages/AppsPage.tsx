@@ -5,6 +5,7 @@ import AppFilters from '../components/AppFilters';
 import AppGrid from '../components/AppGrid';
 import Breadcrumb from '../components/Breadcrumb';
 import { useApps, useCategories } from '../hooks/useApps';
+import { useLanguage } from '../contexts/LanguageContext';
 
 interface FilterState {
   category: string;
@@ -15,6 +16,7 @@ interface FilterState {
 
 const AppsPage: React.FC = () => {
   const [searchParams, setSearchParams] = useSearchParams();
+  const { t } = useLanguage();
   const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid');
   const [filters, setFilters] = useState<FilterState>({
     category: 'all',
@@ -70,9 +72,9 @@ const AppsPage: React.FC = () => {
   const currentCategory = categories.find(cat => cat.slug === filters.category);
 
   const breadcrumbItems = [
-    { label: 'Apps', href: '/apps' },
+    { label: t('nav.browse_apps'), href: '/apps' },
     ...(currentCategory ? [{ label: currentCategory.name }] : []),
-    ...(searchQuery ? [{ label: `Search: "${searchQuery}"` }] : [])
+    ...(searchQuery ? [{ label: `${t('common.search')}: "${searchQuery}"` }] : [])
   ];
 
   return (
@@ -84,10 +86,10 @@ const AppsPage: React.FC = () => {
         {/* Header */}
         <div className="mb-8">
           <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-            Browse Apps
+            {t('apps.title')}
           </h1>
           <p className="text-lg text-gray-600">
-            Discover amazing apps created by Zimbabwean developers
+            {t('apps.description')}
           </p>
         </div>
 
@@ -134,8 +136,8 @@ const AppsPage: React.FC = () => {
           onViewModeChange={setViewMode}
           emptyMessage={
             searchQuery 
-              ? `No apps found matching "${searchQuery}"`
-              : "No apps found matching your criteria."
+              ? t('apps.no_apps_search', { query: searchQuery })
+              : t('apps.no_apps_criteria')
           }
         />
       </div>

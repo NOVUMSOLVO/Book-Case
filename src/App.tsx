@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { AuthProvider } from './contexts/AuthContext';
+import { LanguageProvider } from './contexts/LanguageContext';
 import { useToast } from './hooks/useToast';
 import { ToastContainer } from './components/Toast';
 import ErrorBoundary from './components/ErrorBoundary';
@@ -19,26 +20,28 @@ function App() {
 
   return (
     <ErrorBoundary>
-      <AuthProvider>
-        <Router>
-          <div className="min-h-screen bg-gray-50 flex flex-col">
-            <Header />
-            <main className="flex-1">
-              <Routes>
-                <Route path="/" element={<HomePage />} />
-                <Route path="/apps" element={<AppsPage />} />
-                <Route path="/apps/:slug" element={<AppDetailsPage />} />
-                <Route path="/login" element={<LoginPage />} />
-                <Route path="/signup" element={<SignupPage />} />
-                <Route path="/dashboard" element={<DashboardPage />} />
-                <Route path="/developer" element={<DeveloperPage />} />
-              </Routes>
-            </main>
-            <Footer />
-          </div>
-          <ToastContainer toasts={toasts} onRemove={removeToast} />
-        </Router>
-      </AuthProvider>
+      <LanguageProvider>
+        <AuthProvider>
+          <Router>
+            <div className="min-h-screen bg-gray-50 flex flex-col">
+              <Header />
+              <main className="flex-1">
+                <Routes>
+                  <Route path="/" element={<HomePage />} />
+                  <Route path="/apps" element={<AppsPage />} />
+                  <Route path="/apps/:slug" element={<AppDetailsPage />} />
+                  <Route path="/login" element={<LoginPage />} />
+                  <Route path="/signup" element={<SignupPage />} />
+                  <Route path="/dashboard" element={<DashboardPage />} />
+                  <Route path="/developer" element={<DeveloperPage />} />
+                </Routes>
+              </main>
+              <Footer />
+            </div>
+            <ToastContainer toasts={toasts} onRemove={removeToast} />
+          </Router>
+        </AuthProvider>
+      </LanguageProvider>
     </ErrorBoundary>
   );
 }

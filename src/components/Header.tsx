@@ -2,11 +2,14 @@ import React, { useState } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { Menu, X, User, LogOut, Smartphone } from 'lucide-react';
 import SearchBar from './SearchBar';
+import LanguageSelector from './LanguageSelector';
 import { useAuth } from '../contexts/AuthContext';
+import { useLanguage } from '../contexts/LanguageContext';
 
 const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { user, logout } = useAuth();
+  const { t } = useLanguage();
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -40,7 +43,7 @@ const Header: React.FC = () => {
                   : 'text-gray-700 hover:text-green-600'
               }`}
             >
-              Browse Apps
+              {t('nav.browse_apps')}
             </Link>
             <Link 
               to="/developer" 
@@ -50,7 +53,7 @@ const Header: React.FC = () => {
                   : 'text-gray-700 hover:text-green-600'
               }`}
             >
-              Developers
+              {t('nav.developers')}
             </Link>
           </nav>
 
@@ -61,6 +64,8 @@ const Header: React.FC = () => {
 
           {/* User Menu */}
           <div className="flex items-center space-x-4">
+            <LanguageSelector />
+            
             {user ? (
               <div className="relative">
                 <button
@@ -81,7 +86,7 @@ const Header: React.FC = () => {
                       onClick={() => setIsMenuOpen(false)}
                       role="menuitem"
                     >
-                      Dashboard
+                      {t('nav.dashboard')}
                     </Link>
                     <button
                       onClick={handleLogout}
@@ -89,7 +94,7 @@ const Header: React.FC = () => {
                       role="menuitem"
                     >
                       <LogOut className="w-4 h-4" />
-                      <span>Logout</span>
+                      <span>{t('nav.logout')}</span>
                     </button>
                   </div>
                 )}
@@ -100,13 +105,13 @@ const Header: React.FC = () => {
                   to="/login"
                   className="text-gray-700 hover:text-green-600 transition-colors font-medium"
                 >
-                  Login
+                  {t('nav.login')}
                 </Link>
                 <Link
                   to="/signup"
                   className="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition-colors font-medium"
                 >
-                  Sign Up
+                  {t('nav.signup')}
                 </Link>
               </div>
             )}
@@ -137,14 +142,14 @@ const Header: React.FC = () => {
                 className="text-gray-700 hover:text-green-600 transition-colors font-medium"
                 onClick={() => setIsMenuOpen(false)}
               >
-                Browse Apps
+                {t('nav.browse_apps')}
               </Link>
               <Link
                 to="/developer"
                 className="text-gray-700 hover:text-green-600 transition-colors font-medium"
                 onClick={() => setIsMenuOpen(false)}
               >
-                Developers
+                {t('nav.developers')}
               </Link>
               
               {!user && (
@@ -154,14 +159,14 @@ const Header: React.FC = () => {
                     className="text-gray-700 hover:text-green-600 transition-colors font-medium"
                     onClick={() => setIsMenuOpen(false)}
                   >
-                    Login
+                    {t('nav.login')}
                   </Link>
                   <Link
                     to="/signup"
                     className="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition-colors font-medium text-center"
                     onClick={() => setIsMenuOpen(false)}
                   >
-                    Sign Up
+                    {t('nav.signup')}
                   </Link>
                 </>
               )}

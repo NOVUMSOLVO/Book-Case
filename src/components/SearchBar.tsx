@@ -3,6 +3,7 @@ import { Search, X, Clock, TrendingUp } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { storage } from '../utils/helpers';
 import { STORAGE_KEYS } from '../utils/constants';
+import { useLanguage } from '../contexts/LanguageContext';
 
 interface SearchBarProps {
   onSearch?: (query: string) => void;
@@ -12,15 +13,18 @@ interface SearchBarProps {
 
 const SearchBar: React.FC<SearchBarProps> = ({ 
   onSearch, 
-  placeholder = "Search apps...", 
+  placeholder, 
   className = "" 
 }) => {
+  const { t } = useLanguage();
   const [query, setQuery] = useState('');
   const [isOpen, setIsOpen] = useState(false);
   const [recentSearches, setRecentSearches] = useState<string[]>([]);
   const navigate = useNavigate();
   const inputRef = useRef<HTMLInputElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
+
+  const searchPlaceholder = placeholder || t('apps.search_placeholder');
 
   const trendingSearches = [
     'EcoCash', 'Weather', 'News', 'Banking', 'Transport'
@@ -91,7 +95,7 @@ const SearchBar: React.FC<SearchBarProps> = ({
         <input
           ref={inputRef}
           type="text"
-          placeholder={placeholder}
+          placeholder={searchPlaceholder}
           value={query}
           onChange={(e) => setQuery(e.target.value)}
           onFocus={() => setIsOpen(true)}
@@ -108,13 +112,13 @@ const SearchBar: React.FC<SearchBarProps> = ({
               <div className="flex items-center justify-between mb-2">
                 <h3 className="text-sm font-medium text-gray-700 flex items-center">
                   <Clock className="w-4 h-4 mr-1" />
-                  Recent Searches
+                  {t('search.recent_searches')}
                 </h3>
                 <button
                   onClick={clearRecentSearches}
                   className="text-xs text-gray-500 hover:text-gray-700"
                 >
-                  Clear
+                  {t('search.clear')}
                 </button>
               </div>
               <div className="space-y-1">
@@ -142,7 +146,7 @@ const SearchBar: React.FC<SearchBarProps> = ({
           <div className="p-3">
             <h3 className="text-sm font-medium text-gray-700 mb-2 flex items-center">
               <TrendingUp className="w-4 h-4 mr-1" />
-              Trending
+              {t('search.trending')}
             </h3>
             <div className="space-y-1">
               {trendingSearches.map((search, index) => (

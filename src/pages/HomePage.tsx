@@ -3,15 +3,17 @@ import { Link } from 'react-router-dom';
 import { ArrowRight, Download, Star, Users, Shield, Zap } from 'lucide-react';
 import AppCard from '../components/AppCard';
 import { useApps } from '../hooks/useApps';
+import { useLanguage } from '../contexts/LanguageContext';
 
 const HomePage: React.FC = () => {
   const { apps: featuredApps, loading } = useApps({ featured: true });
+  const { t } = useLanguage();
 
   const stats = [
-    { icon: Download, label: 'Total Downloads', value: '10M+' },
-    { icon: Users, label: 'Active Users', value: '2M+' },
-    { icon: Star, label: 'Apps Available', value: '500+' },
-    { icon: Shield, label: 'Developers', value: '150+' }
+    { icon: Download, label: t('home.stats.downloads'), value: '10M+' },
+    { icon: Users, label: t('home.stats.users'), value: '2M+' },
+    { icon: Star, label: t('home.stats.apps'), value: '500+' },
+    { icon: Shield, label: t('home.stats.developers'), value: '150+' }
   ];
 
   return (
@@ -21,26 +23,25 @@ const HomePage: React.FC = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
           <div className="text-center">
             <h1 className="text-4xl md:text-6xl font-bold mb-6">
-              Discover Zimbabwe's
-              <span className="text-yellow-300 block">Best Mobile Apps</span>
+              {t('home.hero.title')}
+              <span className="text-yellow-300 block">{t('home.hero.subtitle')}</span>
             </h1>
             <p className="text-xl md:text-2xl mb-8 text-green-100 max-w-3xl mx-auto">
-              From mobile money to local news, find apps built by Zimbabweans for Zimbabweans. 
-              Support local innovation and discover your next favorite app.
+              {t('home.hero.description')}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
                 to="/apps"
                 className="bg-white text-green-700 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-gray-100 transition-colors flex items-center justify-center space-x-2"
               >
-                <span>Browse Apps</span>
+                <span>{t('home.hero.browse_apps')}</span>
                 <ArrowRight className="w-5 h-5" />
               </Link>
               <Link
                 to="/developer"
                 className="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-white hover:text-green-700 transition-colors"
               >
-                Submit Your App
+                {t('home.hero.submit_app')}
               </Link>
             </div>
           </div>
@@ -69,10 +70,10 @@ const HomePage: React.FC = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Featured Apps
+              {t('home.featured.title')}
             </h2>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              Discover the most popular and innovative apps from Zimbabwean developers
+              {t('home.featured.description')}
             </p>
           </div>
           
@@ -105,7 +106,7 @@ const HomePage: React.FC = () => {
               to="/apps"
               className="inline-flex items-center space-x-2 bg-green-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-700 transition-colors"
             >
-              <span>View All Apps</span>
+              <span>{t('home.featured.view_all')}</span>
               <ArrowRight className="w-5 h-5" />
             </Link>
           </div>
@@ -117,7 +118,7 @@ const HomePage: React.FC = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Why Choose ZimbabweApps?
+              {t('home.features.title')}
             </h2>
           </div>
           
@@ -126,9 +127,9 @@ const HomePage: React.FC = () => {
               <div className="bg-green-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Shield className="w-8 h-8 text-green-600" />
               </div>
-              <h3 className="text-xl font-semibold mb-3">Secure & Trusted</h3>
+              <h3 className="text-xl font-semibold mb-3">{t('home.features.secure.title')}</h3>
               <p className="text-gray-600">
-                All apps are verified and secure. We prioritize user safety and data protection.
+                {t('home.features.secure.description')}
               </p>
             </div>
             
@@ -136,9 +137,9 @@ const HomePage: React.FC = () => {
               <div className="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Zap className="w-8 h-8 text-blue-600" />
               </div>
-              <h3 className="text-xl font-semibold mb-3">Local Payment</h3>
+              <h3 className="text-xl font-semibold mb-3">{t('home.features.payment.title')}</h3>
               <p className="text-gray-600">
-                Easy payments with EcoCash, PayNow, and other local payment methods.
+                {t('home.features.payment.description')}
               </p>
             </div>
             
@@ -146,9 +147,9 @@ const HomePage: React.FC = () => {
               <div className="bg-orange-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Users className="w-8 h-8 text-orange-600" />
               </div>
-              <h3 className="text-xl font-semibold mb-3">Support Local</h3>
+              <h3 className="text-xl font-semibold mb-3">{t('home.features.support.title')}</h3>
               <p className="text-gray-600">
-                Every download supports Zimbabwean developers and innovation.
+                {t('home.features.support.description')}
               </p>
             </div>
           </div>
@@ -159,16 +160,16 @@ const HomePage: React.FC = () => {
       <section className="py-16 bg-gradient-to-r from-blue-600 to-purple-600 text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            Ready to Get Started?
+            {t('home.cta.title')}
           </h2>
           <p className="text-xl mb-8 text-blue-100">
-            Join thousands of users discovering amazing apps every day
+            {t('home.cta.description')}
           </p>
           <Link
             to="/signup"
             className="bg-white text-blue-600 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-gray-100 transition-colors inline-flex items-center space-x-2"
           >
-            <span>Create Account</span>
+            <span>{t('home.cta.create_account')}</span>
             <ArrowRight className="w-5 h-5" />
           </Link>
         </div>
