@@ -1,5 +1,6 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
-import { storage, STORAGE_KEYS } from '../utils/constants';
+import { STORAGE_KEYS } from '../utils/constants';
+import { storage } from '../utils/helpers';
 
 export type Language = 'en' | 'sn' | 'nd';
 
